@@ -31,9 +31,10 @@ CREATE TABLE job (
 
 CREATE TABLE job_attachment (
     id SERIAL PRIMARY KEY,
-    job_id BIGINT NOT NULL REFERENCES job(id) ON DELETE CASCADE,
-    file_name TEXT NOT NULL,
-    file_path TEXT NOT NULL,
     content_type TEXT,
+    file_name TEXT NOT NULL,
+    stored_name TEXT,
+    file_path TEXT,
+    job_id BIGINT NOT NULL REFERENCES job(id) ON DELETE CASCADE,
     file_size BIGINT
 );
