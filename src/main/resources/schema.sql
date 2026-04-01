@@ -1,7 +1,6 @@
-BEGIN;
-DELETE FROM job_attachment;
-DELETE FROM job;
-DELETE FROM users;
+DROP TABLE IF EXISTS job_attachment CASCADE;
+DROP TABLE IF EXISTS job CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -26,7 +25,7 @@ CREATE TABLE job (
         'POLISHED'
     )),
     seller TEXT,
-    created_at TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     attachment_path TEXT
 );
 
