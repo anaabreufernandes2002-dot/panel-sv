@@ -18,14 +18,15 @@ public class Job {
     private String contractor;
     private String customer;
     private String material;
-
     private String seller;
 
     @Enumerated(EnumType.STRING)
     private Stage stage;
 
-    private LocalDate installDate; // ✅ CORRIGIDO
+    @Column(name = "install_date")
+    private LocalDate installDate;
 
+    @Column(columnDefinition = "TEXT")
     private String notes;
 
     private boolean completed;
@@ -102,11 +103,11 @@ public class Job {
         this.stage = stage;
     }
 
-    public LocalDate getInstallDate() { // ✅ CORRIGIDO
+    public LocalDate getInstallDate() {
         return installDate;
     }
 
-    public void setInstallDate(LocalDate installDate) { // ✅ CORRIGIDO
+    public void setInstallDate(LocalDate installDate) {
         this.installDate = installDate;
     }
 
