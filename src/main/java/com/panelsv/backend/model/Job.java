@@ -2,6 +2,7 @@ package com.panelsv.backend.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ public class Job {
     @Enumerated(EnumType.STRING)
     private Stage stage;
 
-    private String installDate;
+    private LocalDate installDate; // ✅ CORRIGIDO
 
     private String notes;
 
@@ -101,11 +102,11 @@ public class Job {
         this.stage = stage;
     }
 
-    public String getInstallDate() {
+    public LocalDate getInstallDate() { // ✅ CORRIGIDO
         return installDate;
     }
 
-    public void setInstallDate(String installDate) {
+    public void setInstallDate(LocalDate installDate) { // ✅ CORRIGIDO
         this.installDate = installDate;
     }
 
