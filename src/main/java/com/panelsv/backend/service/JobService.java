@@ -7,7 +7,6 @@ import com.panelsv.backend.repository.JobRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -42,11 +41,7 @@ public class JobService {
         j.setCustomer(req.getCustomer());
         j.setMaterial(req.getMaterial());
         j.setStage(parseStage(req.getStage()));
-
-        if (req.getInstallDate() != null && !req.getInstallDate().isBlank()) {
-            j.setInstallDate(LocalDate.parse(req.getInstallDate()));
-        }
-
+        j.setInstallDate(req.getInstallDate());
         j.setNotes(req.getNotes());
         j.setCompleted(false);
         j.setSeller(req.getSeller());
@@ -62,11 +57,7 @@ public class JobService {
         if (req.getCustomer() != null) j.setCustomer(req.getCustomer());
         if (req.getMaterial() != null) j.setMaterial(req.getMaterial());
         if (req.getStage() != null) j.setStage(parseStage(req.getStage()));
-
-        if (req.getInstallDate() != null && !req.getInstallDate().isBlank()) {
-            j.setInstallDate(LocalDate.parse(req.getInstallDate()));
-        }
-
+        if (req.getInstallDate() != null) j.setInstallDate(req.getInstallDate());
         if (req.getNotes() != null) j.setNotes(req.getNotes());
         if (req.getSeller() != null) j.setSeller(req.getSeller());
 
